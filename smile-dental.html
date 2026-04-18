@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smile Dental & Implant Clinic | Chandkheda, Ahmedabad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #112240;
+    --navy-light: #1a3356;
+    --teal: #0d4f5c;
+    --teal-light: #1a6b7a;
+    --gold: #c9a84c;
+    --gold-light: #e2c97e;
+    --gold-pale: #f5ecd0;
+    --white: #ffffff;
+    --off-white: #f8f6f1;
+    --text-muted: #8a9bb5;
+    --text-light: #cdd5e0;
+    --border: rgba(201,168,76,0.2);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 1.2rem 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(10,22,40,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s ease;
+  }
+  nav.scrolled {
+    padding: 0.9rem 5%;
+    background: rgba(10,22,40,0.98);
+  }
+  .nav-brand {
+    display: flex; flex-direction: column; line-height: 1;
+  }
+  .nav-brand span:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem; font-weight: 600;
+    color: var(--white); letter-spacing: 0.04em;
+  }
+  .nav-brand span:last-child {
+    font-size: 0.65rem; font-weight: 400;
+    color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none; color: var(--text-light);
+    font-size: 0.82rem; font-weight: 400; letter-spacing: 0.12em;
+    text-transform: uppercase; transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 1px; background: var(--gold);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    padding: 0.6rem 1.6rem;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold); font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s;
+    text-decoration: none;
+  }
+  .nav-cta:hover {
+    background: var(--gold); color: var(--navy);
+  }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 1.5px; background: var(--gold); transition: all 0.3s;
+  }
+  .mobile-menu {
+    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10,22,40,0.98); z-index: 999;
+    flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; color: var(--white); text-decoration: none;
+    letter-spacing: 0.05em; transition: color 0.3s;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-close {
+    position: absolute; top: 1.5rem; right: 5%;
+    background: none; border: none; color: var(--gold);
+    font-size: 2rem; cursor: pointer;
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 8rem 5% 5rem;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(13,79,92,0.35) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 10% 80%, rgba(201,168,76,0.08) 0%, transparent 50%),
+      linear-gradient(135deg, #0a1628 0%, #0d2040 50%, #0a1628 100%);
+  }
+  .hero-grid-overlay {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.5) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-circle {
+    position: absolute; right: -5%; top: 50%; transform: translateY(-50%);
+    width: min(55vw, 650px); height: min(55vw, 650px);
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.15);
+    pointer-events: none;
+  }
+  .hero-circle::before {
+    content: ''; position: absolute; inset: 30px;
+    border-radius: 50%; border: 1px solid rgba(201,168,76,0.1);
+  }
+  .hero-circle::after {
+    content: ''; position: absolute; inset: 80px;
+    border-radius: 50%; border: 1px solid rgba(201,168,76,0.06);
+  }
+  .hero-content {
+    position: relative; z-index: 2; max-width: 650px;
+  }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 2rem;
+    font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 40px; height: 1px; background: var(--gold);
+  }
+  .hero-title {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1.05; font-weight: 400;
+    color: var(--white); margin-bottom: 1.5rem;
+  }
+  .hero-title em {
+    font-style: italic; color: var(--gold-light);
+  }
+  .hero-subtitle {
+    font-size: 1.05rem; line-height: 1.75;
+    color: var(--text-muted); font-weight: 300;
+    max-width: 480px; margin-bottom: 3rem;
+  }
+  .hero-actions {
+    display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center;
+  }
+  .btn-primary {
+    padding: 1rem 2.4rem;
+    background: var(--gold);
+    color: var(--navy); border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(201,168,76,0.3);
+  }
+  .btn-outline {
+    padding: 1rem 2.4rem;
+    background: transparent;
+    color: var(--white); border: 1px solid rgba(255,255,255,0.25);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem; font-weight: 400;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-outline:hover {
+    border-color: var(--gold); color: var(--gold);
+  }
+  .hero-stats {
+    position: absolute; bottom: 4rem; right: 5%;
+    display: flex; gap: 3rem;
+    z-index: 2;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 300;
+    color: var(--gold-light); line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--text-muted); margin-top: 0.4rem;
+  }
+  .star-rating {
+    display: flex; gap: 3px; justify-content: center; margin-bottom: 4px;
+  }
+  .star-rating span { color: var(--gold); font-size: 0.9rem; }
+
+  /* ─── SECTION COMMONS ─── */
+  section { padding: 6rem 5%; }
+  .section-header { text-align: center; margin-bottom: 4rem; }
+  .section-tag {
+    display: inline-block;
+    font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400; margin-bottom: 1rem;
+  }
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.2; color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .section-line {
+    width: 50px; height: 1px; background: var(--gold);
+    margin: 1.2rem auto 0;
+  }
+  .section-desc {
+    font-size: 0.95rem; color: var(--text-muted);
+    max-width: 520px; margin: 1.2rem auto 0;
+    line-height: 1.8; font-weight: 300;
+  }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--navy-mid); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .service-card {
+    background: var(--navy-mid);
+    padding: 2rem 1.8rem;
+    position: relative; overflow: hidden;
+    transition: all 0.4s;
+    cursor: default;
+  }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 0; background: var(--gold);
+    transition: height 0.4s;
+  }
+  .service-card:hover::before { height: 100%; }
+  .service-card:hover { background: var(--navy-light); }
+  .service-icon {
+    width: 38px; height: 38px; margin-bottom: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(201,168,76,0.1);
+    color: var(--gold); font-size: 1.1rem;
+    border-radius: 2px;
+  }
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 500; color: var(--white);
+    margin-bottom: 0.5rem; letter-spacing: 0.02em;
+  }
+  .service-desc {
+    font-size: 0.8rem; color: var(--text-muted);
+    line-height: 1.6; font-weight: 300;
+  }
+  .popular-badge {
+    position: absolute; top: 1rem; right: 1rem;
+    font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--navy); background: var(--gold);
+    padding: 3px 8px; font-weight: 600;
+  }
+
+  /* ─── WHY CHOOSE US ─── */
+  #why {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 50%, var(--navy) 100%);
+    position: relative; overflow: hidden;
+  }
+  #why::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(201,168,76,0.05) 0%, transparent 70%);
+  }
+  .why-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem; position: relative; z-index: 1;
+  }
+  .why-card {
+    text-align: center; padding: 2.5rem 1.5rem;
+    border: 1px solid var(--border);
+    background: rgba(10,22,40,0.5);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s;
+  }
+  .why-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  }
+  .why-icon {
+    font-size: 2rem; margin-bottom: 1.2rem;
+    display: block;
+  }
+  .why-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; color: var(--gold-light);
+    margin-bottom: 0.8rem;
+  }
+  .why-text {
+    font-size: 0.82rem; color: var(--text-muted);
+    line-height: 1.7; font-weight: 300;
+  }
+
+  /* ─── RATINGS BAR ─── */
+  .ratings-bar {
+    background: var(--navy-light);
+    padding: 2.5rem 5%;
+    display: flex; align-items: center; justify-content: center;
+    gap: 4rem; flex-wrap: wrap;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .rating-item { text-align: center; }
+  .rating-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 300; color: var(--gold); line-height: 1;
+  }
+  .rating-source {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text-muted); margin-top: 0.3rem;
+  }
+  .rating-stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; }
+  .ratings-divider {
+    width: 1px; height: 60px;
+    background: var(--border);
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  #testimonials { background: var(--navy); }
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  .testimonial-card {
+    background: var(--navy-mid);
+    padding: 2.5rem; position: relative;
+    border: 1px solid var(--border);
+    transition: border-color 0.3s;
+  }
+  .testimonial-card:hover { border-color: var(--gold); }
+  .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem; line-height: 1;
+    color: var(--gold); opacity: 0.3;
+    position: absolute; top: 1rem; right: 1.5rem;
+    font-style: italic;
+  }
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-style: italic;
+    line-height: 1.7; color: var(--text-light);
+    margin-bottom: 1.5rem; position: relative; z-index: 1;
+  }
+  .testimonial-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 0.8rem; }
+  .testimonial-author {
+    font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500;
+  }
+
+  /* ─── DOCTOR ─── */
+  #doctor { background: var(--navy-mid); }
+  .doctor-card {
+    max-width: 500px; margin: 0 auto; text-align: center;
+    padding: 3rem; border: 1px solid var(--border);
+    background: var(--navy);
+    position: relative; overflow: hidden;
+  }
+  .doctor-card::before {
+    content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 80px; height: 2px; background: var(--gold);
+  }
+  .doctor-avatar {
+    width: 90px; height: 90px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal), var(--navy-light));
+    margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem; border: 2px solid var(--border);
+  }
+  .doctor-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; color: var(--white); margin-bottom: 0.4rem;
+  }
+  .doctor-title {
+    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400; margin-bottom: 1rem;
+  }
+  .doctor-bio {
+    font-size: 0.88rem; color: var(--text-muted);
+    line-height: 1.75; font-weight: 300;
+  }
+
+  /* ─── APPOINTMENT ─── */
+  #appointment {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--teal) 100%);
+    position: relative; overflow: hidden;
+  }
+  #appointment::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .appointment-inner {
+    max-width: 720px; margin: 0 auto; position: relative; z-index: 1;
+  }
+  .form-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.2rem; margin-top: 2.5rem;
+  }
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-label {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500;
+  }
+  .form-control {
+    background: rgba(10,22,40,0.7);
+    border: 1px solid var(--border);
+    color: var(--white); padding: 0.9rem 1.1rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    outline: none; transition: border-color 0.3s;
+    appearance: none; width: 100%;
+  }
+  .form-control:focus { border-color: var(--gold); }
+  .form-control::placeholder { color: var(--text-muted); }
+  .form-control option { background: var(--navy-mid); color: var(--white); }
+  .form-submit {
+    grid-column: 1 / -1; margin-top: 0.5rem;
+  }
+  .form-submit .btn-primary {
+    width: 100%; padding: 1.1rem;
+    font-size: 0.85rem;
+  }
+  .form-note {
+    font-size: 0.75rem; color: var(--text-muted);
+    text-align: center; margin-top: 1rem;
+  }
+  .form-success {
+    display: none; text-align: center; padding: 2rem;
+    border: 1px solid var(--gold);
+    background: rgba(201,168,76,0.05);
+  }
+  .form-success h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; color: var(--gold); margin-bottom: 0.5rem;
+  }
+  .form-success p { font-size: 0.88rem; color: var(--text-muted); }
+
+  /* ─── HOURS ─── */
+  .hours-block {
+    display: flex; align-items: center; gap: 0.8rem;
+    font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;
+  }
+  .hours-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0;
+  }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--navy-mid); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1.5fr;
+    gap: 3rem; align-items: start;
+  }
+  .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+  .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .contact-icon {
+    width: 42px; height: 42px; flex-shrink: 0;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; color: var(--gold);
+  }
+  .contact-label {
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 0.35rem;
+  }
+  .contact-value {
+    font-size: 0.9rem; color: var(--text-light); line-height: 1.6; font-weight: 300;
+  }
+  .contact-value a { color: var(--gold-light); text-decoration: none; }
+  .contact-value a:hover { text-decoration: underline; }
+  .map-container {
+    border: 1px solid var(--border); overflow: hidden;
+    height: 360px; position: relative;
+  }
+  .map-container iframe {
+    width: 100%; height: 100%; border: 0; filter: grayscale(30%) contrast(1.1);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #060e1a;
+    padding: 3rem 5% 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .footer-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+  .footer-brand span:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; color: var(--white); display: block;
+  }
+  .footer-brand span:last-child {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-top: 2px; display: block;
+  }
+  .footer-links {
+    display: flex; gap: 2rem; list-style: none; flex-wrap: wrap;
+  }
+  .footer-links a {
+    font-size: 0.78rem; color: var(--text-muted); text-decoration: none;
+    letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-call {
+    font-size: 0.85rem; color: var(--gold-light);
+    text-decoration: none; letter-spacing: 0.05em;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .footer-bottom {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-copy {
+    font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.05em;
+  }
+  .footer-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem; font-style: italic; color: var(--text-muted);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1; transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── FLOATING CTA ─── */
+  .float-cta {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 500;
+    padding: 0.9rem 1.6rem;
+    background: var(--gold); color: var(--navy);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    border: none; cursor: pointer;
+    box-shadow: 0 8px 30px rgba(201,168,76,0.4);
+    transition: all 0.3s;
+    text-decoration: none; display: inline-block;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s;
+  }
+  .float-cta.visible { opacity: 1; pointer-events: all; }
+  .float-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(201,168,76,0.5); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .hero-stats { position: static; margin-top: 3rem; justify-content: flex-start; }
+    #hero { flex-direction: column; }
+    .hero-circle { display: none; }
+  }
+  @media (max-width: 700px) {
+    nav { padding: 1rem 5%; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: 1; }
+    .ratings-bar { gap: 2rem; }
+    .ratings-divider { display: none; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+    .footer-bottom { flex-direction: column; }
+    .hero-stats { gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-brand">
+    <span>Smile Dental & Implant Clinic</span>
+    <span>Excellence in Dentistry</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#doctor">Our Doctor</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#appointment" class="nav-cta">Book Appointment</a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#why" class="mobile-link">Why Us</a>
+  <a href="#doctor" class="mobile-link">Our Doctor</a>
+  <a href="#testimonials" class="mobile-link">Reviews</a>
+  <a href="#appointment" class="mobile-link">Book Appointment</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Chandkheda, Ahmedabad</div>
+    <h1 class="hero-title">
+      Where Every Smile<br>
+      <em>Finds Its Finest Care</em>
+    </h1>
+    <p class="hero-subtitle">
+      Advanced dental care delivered with precision, warmth, and an unwavering commitment to your comfort. Trusted by hundreds of patients across Ahmedabad.
+    </p>
+    <div class="hero-actions">
+      <a href="#appointment" class="btn-primary">Book an Appointment</a>
+      <a href="#services" class="btn-outline">Explore Services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="star-rating">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <div class="stat-num">5.0</div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">137+</div>
+        <div class="stat-label">Verified Reviews</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Dental Services</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RATINGS BAR -->
+<div class="ratings-bar">
+  <div class="rating-item">
+    <div class="rating-stars">★★★★★</div>
+    <div class="rating-big">5.0</div>
+    <div class="rating-source">Google · 53 Reviews</div>
+  </div>
+  <div class="ratings-divider"></div>
+  <div class="rating-item">
+    <div class="rating-stars">★★★★★</div>
+    <div class="rating-big">5.0</div>
+    <div class="rating-source">JustDial · 84 Reviews</div>
+  </div>
+  <div class="ratings-divider"></div>
+  <div class="rating-item">
+    <div class="rating-big">Mon–Sat</div>
+    <div class="rating-source">10:00 AM — 8:00 PM</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header reveal">
+    <span class="section-tag">What We Offer</span>
+    <h2 class="section-title">Comprehensive Dental Care</h2>
+    <div class="section-line"></div>
+    <p class="section-desc">From routine check-ups to advanced implant surgery — every service delivered with clinical precision and genuine care.</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card reveal">
+      <span class="popular-badge">Most Popular</span>
+      <div class="service-icon">🦷</div>
+      <div class="service-name">Dental Implants</div>
+      <div class="service-desc">Permanent, natural-looking tooth replacements that restore your smile and function with lasting results.</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-1">
+      <span class="popular-badge">Most Popular</span>
+      <div class="service-icon">✨</div>
+      <div class="service-name">Teeth Whitening</div>
+      <div class="service-desc">Professional-grade whitening treatments that brighten your smile safely and effectively.</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <span class="popular-badge">Most Popular</span>
+      <div class="service-icon">😁</div>
+      <div class="service-name">Braces Treatment</div>
+      <div class="service-desc">Align your teeth with precision. We offer both traditional and modern orthodontic solutions.</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-3">
+      <span class="popular-badge">Most Popular</span>
+      <div class="service-icon">🔬</div>
+      <div class="service-name">Root Canal</div>
+      <div class="service-desc">Comfortable, effective root canal therapy to save your natural tooth and eliminate pain.</div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">🔎</div>
+      <div class="service-name">Dental Check-Ups</div>
+      <div class="service-desc">Thorough examinations to detect issues early and maintain optimal oral health.</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">💎</div>
+      <div class="service-name">Veneers & Crowns</div>
+      <div class="service-desc">Custom-crafted porcelain restorations that blend seamlessly with your natural teeth.</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon">🧴</div>
+      <div class="service-name">Teeth Cleaning</div>
+      <div class="service-desc">Professional scaling and polishing to remove plaque, tartar, and stubborn stains.</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-icon">🦴</div>
+      <div class="service-name">Oral Surgery</div>
+      <div class="service-desc">Including wisdom tooth removal, cyst & jaw tumor treatment, and jaw fracture management.</div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">🩺</div>
+      <div class="service-name">Cosmetic Procedures</div>
+      <div class="service-desc">Teeth reshaping, smile design, and aesthetic treatments tailored to your vision.</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">🧒</div>
+      <div class="service-name">Paediatric Dentistry</div>
+      <div class="service-desc">Gentle, child-friendly dental care in a calm and welcoming environment.</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon">🛡️</div>
+      <div class="service-name">Mouth Guards</div>
+      <div class="service-desc">Custom-fitted guards for sports protection, teeth grinding, and TMJ management.</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-icon">📋</div>
+      <div class="service-name">Ortho Treatment</div>
+      <div class="service-desc">Full orthodontic evaluation and treatment plans for children, teens, and adults.</div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">🔩</div>
+      <div class="service-name">Dentures & Bridges</div>
+      <div class="service-desc">Removable and fixed prosthetic solutions designed for comfort, fit, and aesthetics.</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">⚡</div>
+      <div class="service-name">Extractions</div>
+      <div class="service-desc">Safe, gentle tooth extractions performed with maximum comfort and precision.</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon">🪥</div>
+      <div class="service-name">Fillings & Sealants</div>
+      <div class="service-desc">Tooth-coloured composite fillings and protective sealants for long-lasting oral health.</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-icon">🦠</div>
+      <div class="service-name">Gum Surgery</div>
+      <div class="service-desc">Advanced periodontal surgery to treat gum disease and restore a healthy foundation.</div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">☢️</div>
+      <div class="service-name">X-Ray Imaging</div>
+      <div class="service-desc">Digital dental X-rays for accurate diagnostics with minimal radiation exposure.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why">
+  <div class="section-header reveal">
+    <span class="section-tag">Why Choose Us</span>
+    <h2 class="section-title">A Standard of Care You Can Feel</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <span class="why-icon">⭐</span>
+      <h3 class="why-title">Perfect 5-Star Rating</h3>
+      <p class="why-text">137+ verified reviews across Google and JustDial — every one of them a 5-star experience from real patients.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-1">
+      <span class="why-icon">🏥</span>
+      <h3 class="why-title">Comprehensive Services</h3>
+      <p class="why-text">20+ dental specialties under one roof — from routine cleaning to jaw surgery, so you never need to go elsewhere.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-2">
+      <span class="why-icon">❤️</span>
+      <h3 class="why-title">Patient-First Approach</h3>
+      <p class="why-text">Our doctors and staff are known for being polite, genuine, and truly invested in your comfort and recovery.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-3">
+      <span class="why-icon">🔬</span>
+      <h3 class="why-title">Advanced Technology</h3>
+      <p class="why-text">Digital X-rays, modern implant systems, and clinical-grade equipment for precise, safe, and comfortable treatments.</p>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">📍</span>
+      <h3 class="why-title">Easily Accessible</h3>
+      <p class="why-text">Conveniently located in Chandkheda on New CG Road — easy to reach from anywhere in North Ahmedabad.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-1">
+      <span class="why-icon">🕐</span>
+      <h3 class="why-title">Convenient Hours</h3>
+      <p class="why-text">Open Monday through Saturday, 10 AM to 8 PM — so you can book appointments that fit your schedule.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTOR -->
+<!-- NOTE TO DEVELOPER: Edit or remove this section anytime without affecting other sections -->
+<section id="doctor">
+  <div class="section-header reveal">
+    <span class="section-tag">Meet Our Doctor</span>
+    <h2 class="section-title">Expert Care, Personal Touch</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="doctor-card reveal">
+    <div class="doctor-avatar">🩺</div>
+    <!-- EDIT DOCTOR NAME BELOW -->
+    <h3 class="doctor-name">Dr. [Doctor Name]</h3>
+    <div class="doctor-title">Lead Dental Surgeon · Smile Dental & Implant Clinic</div>
+    <p class="doctor-bio">
+      With specialized training in implantology, oral surgery, and cosmetic dentistry, our lead doctor brings both clinical excellence and a compassionate approach to every patient interaction. Known for a calm, reassuring manner that puts even nervous patients at ease.
+    </p>
+    <div class="hours-block" style="justify-content:center; margin-top:1.2rem;">
+      <div class="hours-dot"></div>
+      <span>Currently accepting new patients · Mon–Sat, 10AM–8PM</span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-header reveal">
+    <span class="section-tag">Patient Reviews</span>
+    <h2 class="section-title">Words That Mean Everything</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">Would highly recommend for all people in the area. Truly one of the best dental experiences I've had.</p>
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-author">— Google Review</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">One of a good dental implant center offering excellent work and truly satisfying results. Highly professional.</p>
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-author">— Google Review</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">Best treatment I ever got. The doctors and staff are very polite and genuine. I felt completely cared for.</p>
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-author">— Google Review</div>
+    </div>
+  </div>
+</section>
+
+<!-- APPOINTMENT BOOKING -->
+<section id="appointment">
+  <div class="appointment-inner">
+    <div class="section-header reveal">
+      <span class="section-tag">Book Online</span>
+      <h2 class="section-title">Schedule Your Appointment</h2>
+      <div class="section-line"></div>
+      <p class="section-desc">Fill in your details below and our team will confirm your appointment within 24 hours.</p>
+    </div>
+    <form class="form-grid reveal" id="bookingForm">
+      <div class="form-group">
+        <label class="form-label" for="name">Full Name</label>
+        <input class="form-control" type="text" id="name" name="name" placeholder="Your full name" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="phone">Phone Number</label>
+        <input class="form-control" type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="service">Service Required</label>
+        <select class="form-control" id="service" name="service" required>
+          <option value="" disabled selected>Select a service</option>
+          <option>Dental Implants</option>
+          <option>Teeth Whitening</option>
+          <option>Braces Treatment</option>
+          <option>Root Canal</option>
+          <option>Dental Check-Up</option>
+          <option>Veneers & Crowns</option>
+          <option>Teeth Cleaning</option>
+          <option>Oral Surgery</option>
+          <option>Cosmetic Procedure</option>
+          <option>Paediatric Dentistry</option>
+          <option>Mouth Guards</option>
+          <option>Ortho Treatment</option>
+          <option>Dentures & Bridges</option>
+          <option>Extraction</option>
+          <option>Fillings & Sealants</option>
+          <option>Gum Surgery</option>
+          <option>X-Ray Imaging</option>
+          <option>Wisdom Tooth Removal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="date">Preferred Date</label>
+        <input class="form-control" type="date" id="date" name="date" required>
+      </div>
+      <div class="form-group full">
+        <label class="form-label" for="time">Preferred Time</label>
+        <select class="form-control" id="time" name="time" required>
+          <option value="" disabled selected>Select a time slot</option>
+          <option>10:00 AM</option>
+          <option>10:30 AM</option>
+          <option>11:00 AM</option>
+          <option>11:30 AM</option>
+          <option>12:00 PM</option>
+          <option>12:30 PM</option>
+          <option>2:00 PM</option>
+          <option>2:30 PM</option>
+          <option>3:00 PM</option>
+          <option>3:30 PM</option>
+          <option>4:00 PM</option>
+          <option>4:30 PM</option>
+          <option>5:00 PM</option>
+          <option>5:30 PM</option>
+          <option>6:00 PM</option>
+          <option>6:30 PM</option>
+          <option>7:00 PM</option>
+          <option>7:30 PM</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label class="form-label" for="message">Additional Notes (Optional)</label>
+        <textarea class="form-control" id="message" name="message" rows="3" placeholder="Any specific concerns or questions..."></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn-primary">Confirm My Appointment →</button>
+      </div>
+    </form>
+    <div class="form-success" id="formSuccess">
+      <h3>Appointment Requested ✓</h3>
+      <p>Thank you! We'll call you at the number provided to confirm your slot. See you soon.</p>
+    </div>
+    <p class="form-note">⏰ Clinic hours: Mon–Sat, 10:00 AM to 8:00 PM · Sunday closed</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header reveal">
+    <span class="section-tag">Find Us</span>
+    <h2 class="section-title">Visit Our Clinic</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item reveal">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Address</div>
+          <div class="contact-value">128,129, Shree Sarju Idyllic, New CG Rd,<br>near Podar School Lane, Nigam Nagar,<br>Chandkheda, Ahmedabad, Gujarat 382424</div>
+        </div>
+      </div>
+      <div class="contact-item reveal reveal-delay-1">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-value"><a href="tel:+919909016082">+91 99090 16082</a></div>
+        </div>
+      </div>
+      <div class="contact-item reveal reveal-delay-2">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <div class="contact-label">Working Hours</div>
+          <div class="contact-value">
+            Monday – Saturday: 10:00 AM – 8:00 PM<br>
+            Sunday: Closed
+          </div>
+        </div>
+      </div>
+      <div class="contact-item reveal reveal-delay-3">
+        <div class="contact-icon">⭐</div>
+        <div>
+          <div class="contact-label">Ratings</div>
+          <div class="contact-value">
+            5.0 on Google (53 reviews)<br>
+            5.0 on JustDial (84 reviews)
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-container reveal">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.177!2d72.5954!3d23.1063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e831234567890%3A0xabcdef1234567890!2sSmile+Dental+%26+Implant+Clinic!5e0!3m2!1sen!2sin!4v1700000000000"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Smile Dental & Implant Clinic Location">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span>Smile Dental & Implant Clinic</span>
+      <span>Chandkheda · Ahmedabad</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#doctor">Our Doctor</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#appointment">Book</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+919909016082" class="footer-call">📞 +91 99090 16082</a>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Smile Dental & Implant Clinic. All rights reserved.</span>
+    <span class="footer-tagline">Your Smile. Our Purpose.</span>
+  </div>
+</footer>
+
+<!-- FLOATING CTA -->
+<a href="#appointment" class="float-cta" id="floatCta">Book Now</a>
+
+<script>
+  // ─── NAV SCROLL ───
+  const navbar = document.getElementById('navbar');
+  const floatCta = document.getElementById('floatCta');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      navbar.classList.add('scrolled');
+      floatCta.classList.add('visible');
+    } else {
+      navbar.classList.remove('scrolled');
+      floatCta.classList.remove('visible');
+    }
+  });
+
+  // ─── MOBILE MENU ───
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  hamburgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+  mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // ─── REVEAL ON SCROLL ───
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // ─── DATE LIMITER (no past dates) ───
+  const dateInput = document.getElementById('date');
+  const today = new Date().toISOString().split('T')[0];
+  dateInput.setAttribute('min', today);
+
+  // ─── FORM SUBMIT ───
+  const bookingForm = document.getElementById('bookingForm');
+  const formSuccess = document.getElementById('formSuccess');
+  bookingForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Collect form data
+    const formData = {
+      name: document.getElementById('name').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      service: document.getElementById('service').value.trim(),
+      date: document.getElementById('date').value.trim(),
+      time: document.getElementById('time').value.trim(),
+      message: document.getElementById('message').value.trim()
+    };
+    
+    // Submit to Flask backend
+    submitBooking(formData);
+  });
+
+  // ─── BACKEND API SUBMISSION ───
+  async function submitBooking(formData) {
+    const submitBtn = bookingForm.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+    
+    try {
+      const response = await fetch('http://127.0.0.1:5000/api/book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: document.getElementById('name').value,
+          phone: document.getElementById('phone').value,
+          service: document.getElementById('service').value,
+          date: document.getElementById('date').value,
+          time: document.getElementById('time').value,
+          message: document.getElementById('message').value
+        })
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok && result.success) {
+        // Success - show success message
+        bookingForm.style.display = 'none';
+        formSuccess.style.display = 'block';
+        console.log('Booking submitted successfully:', result.booking_id);
+      } else {
+        // Error - show error details
+        const errorMsg = result.details 
+          ? result.details.join('\n') 
+          : result.error || 'Failed to submit booking';
+        alert('Booking Error:\n\n' + errorMsg);
+      }
+    } catch (error) {
+      console.error('Booking submission error:', error);
+      alert('Network error. Please check your connection and try again.\n\nIf the problem persists, please call us at +91 99090 16082');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Confirm My Appointment →';
+    }
+  }
+
+  // ─── HERO COUNTER ANIMATION ───
+  function animateCounter(el, target, suffix='') {
+    let start = 0;
+    const duration = 1800;
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      el.textContent = Math.floor(progress * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  // Trigger counters when hero is visible
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        document.querySelectorAll('.stat-num').forEach(el => {
+          const text = el.textContent;
+          if (text.includes('137')) animateCounter(el, 137, '+');
+          else if (text.includes('20')) animateCounter(el, 20, '+');
+        });
+        heroObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.5 });
+  const heroSection = document.getElementById('hero');
+  if (heroSection) heroObserver.observe(heroSection);
+</script>
+</body>
+</html>
